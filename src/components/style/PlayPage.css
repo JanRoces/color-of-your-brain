@@ -1,0 +1,40 @@
+h3 {
+  color: white;
+}
+
+.play-container {
+  margin-top: 100px;
+}
+
+.tile-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+td {
+  padding: 30px;
+  background-color: lightgray;
+  border: 5px solid white;
+  width: 170px;
+  border-radius: 50px;
+}
+
+.guide-container {
+  display: flex;
+  justify-content: center;
+}
+
+.color-square {
+  width: 70px;
+  height: 70px;
+  border: 5px solid lightgray;
+}
+
+.color-button {
+  font-weight: bold;
+  font-size: 25px;
+  border: none;
+  background: none;
+  outline: none;
+}
