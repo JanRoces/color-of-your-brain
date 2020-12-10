@@ -4,7 +4,7 @@ import "./style/MainPage.css";
 import logo from "./../artwork/logo.png";
 
 class MainPage extends Component {
-  state = { status: "MAIN" };
+  state = { status: "MAIN"};
 
   render() {
     console.log("STATUS: ", this.state.status);

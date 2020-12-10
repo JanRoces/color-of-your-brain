@@ -26,27 +26,17 @@ class PlayPage extends Component {
       "#000000",
       "#ffffff",
     ],
-    randColor: { color: "Red", hex: "#ff0000" },
+    randColor: "Red",
+    randHex: "#ff0000"
   };
 
   componentDidMount() {
-    var rand = this.state.randColor;
-    var c = this.state.colors;
-    var h = this.state.hexArr;
-    var r = Math.floor(Math.random() * 10);
-
-    this.shuffleArr(c);
-    this.shuffleArr(h);
-
-    rand.color = c[r].color;
-    rand.hex = c[r].hex;
-
-    console.log("c: ", c);
-    console.log("h: ", h);
-
-    this.setState({ colors: c, hexArr: h, randColor: rand });
-    console.log(this.state);
+    this.renderTable();
   }
+
+  // componentWillMount() {
+  //   this.renderTable();
+  // }
 
   render() {
     return (
@@ -54,8 +44,8 @@ class PlayPage extends Component {
         <div className="guide-container">
           <div
             className="color-square"
-            id={this.state.randColor.hex}
-            style={{ backgroundColor: this.state.randColor.hex }}></div>
+            id={this.state.randHex}
+            style={{ backgroundColor: this.state.randHex }}></div>
         </div>
         <div className="tile-container">
           <table>{this.generateTable()}</table>
@@ -67,12 +57,22 @@ class PlayPage extends Component {
     );
   }
 
-  selectColor = () => {};
-
-  shuffleArr = (arr) => {
-    arr.sort(() => Math.random() - 0.5);
+  shuffleArr(arr) {
+    var currentIndex = arr.length;
+    var temporaryValue;
+    var randomIndex;
+  
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+  
+      temporaryValue = arr[currentIndex];
+      arr[currentIndex] = arr[randomIndex];
+      arr[randomIndex] = temporaryValue;
+    }
+  
     return arr;
-  };
+  }
 
   generateTable = () => {
     var i;
@@ -120,7 +120,7 @@ class PlayPage extends Component {
 
     var s = this.state.score;
 
-    if (id === this.state.randColor.color) {
+    if (id === this.state.randColor) {
       s++;
       this.setState({ score: s });
       this.renderTable();
@@ -131,23 +131,28 @@ class PlayPage extends Component {
   };
 
   renderTable = () => {
-    var rand = this.state.randColor;
+    var rC = this.state.randColor;
+    var rH = this.state.randHex;
     var c = this.state.colors;
     var h = this.state.hexArr;
-    var r = Math.floor(Math.random() * 10);
+    var r = Math.floor(Math.random() * 9);
 
     this.shuffleArr(c);
     this.shuffleArr(h);
 
-    rand.color = c[r].color;
-    rand.hex = c[r].hex;
-
     console.log("c: ", c);
     console.log("h: ", h);
+    console.log("r: ", r);
+    rC= c[r].color;
+    rH = c[r].hex;
+    
+    console.log("rC: ", rC);
+    console.log("rH: ", rH);
+    
 
-    this.setState({ colors: c, hexArr: h, randColor: rand });
+    this.setState({ colors: c, hexArr: h, randColor: rC, randHex: rH });
     console.log(this.state);
-  };
+  }
 }
 
 export default PlayPage;
