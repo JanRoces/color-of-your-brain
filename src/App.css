@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.link-container {
+  display: flex;
+  margin-top: 50px;
+}
+
+.link {
+  flex: 1;
+  color: white;
+  font-weight: bolder;
+  background: none;
+  outline: none;
+  width: 75px;
+  margin-left: 50px;
+  font-size: 16px;
+  margin-right: 50px;
+  border: none;
+}
