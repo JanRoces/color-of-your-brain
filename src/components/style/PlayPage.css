@@ -4,6 +4,9 @@ h3 {
 
 .play-container {
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tile-container {
@@ -14,9 +17,10 @@ h3 {
 
 td {
   padding: 30px;
-  background-color: lightgray;
+  background-color: none;
   border: 5px solid white;
   width: 170px;
+  box-sizing: border-box;
   border-radius: 50px;
 }
 
@@ -37,4 +41,11 @@ td {
   border: none;
   background: none;
   outline: none;
+}
+
+.timer-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  /* border-color: #272727; */
 }

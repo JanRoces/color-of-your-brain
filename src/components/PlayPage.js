@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import "./style/PlayPage.css";
 
 class PlayPage extends Component {
@@ -27,25 +28,34 @@ class PlayPage extends Component {
       "#ffffff",
     ],
     randColor: "Red",
-    randHex: "#ff0000"
+    randHex: "#ff0000",
+    timerKey: 0,
   };
 
-  componentDidMount() {
-    this.renderTable();
-  }
-
-  // componentWillMount() {
+  // componentDidMount() {
   //   this.renderTable();
   // }
+
+  componentWillMount() {
+    this.renderTable();
+  }
 
   render() {
     return (
       <div className="play-container">
-        <div className="guide-container">
-          <div
-            className="color-square"
-            id={this.state.randHex}
-            style={{ backgroundColor: this.state.randHex }}></div>
+        <div
+          className="timer-container"
+          style={{ backgroundColor: this.state.randHex }}>
+          <CountdownCircleTimer
+            key={this.state.timerKey}
+            trailColor={this.state.randHex}
+            isPlaying
+            duration={3}
+            colors={[
+              ["#d3d3d3", 0.33],
+              ["#d3d3d3", 0.33],
+              ["#d3d3d3", 0.33],
+            ]}></CountdownCircleTimer>
         </div>
         <div className="tile-container">
           <table>{this.generateTable()}</table>
@@ -61,16 +71,16 @@ class PlayPage extends Component {
     var currentIndex = arr.length;
     var temporaryValue;
     var randomIndex;
-  
+
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-  
+
       temporaryValue = arr[currentIndex];
       arr[currentIndex] = arr[randomIndex];
       arr[randomIndex] = temporaryValue;
     }
-  
+
     return arr;
   }
 
@@ -136,6 +146,8 @@ class PlayPage extends Component {
     var c = this.state.colors;
     var h = this.state.hexArr;
     var r = Math.floor(Math.random() * 9);
+    var k = this.state.timerKey;
+    k++;
 
     this.shuffleArr(c);
     this.shuffleArr(h);
@@ -143,16 +155,21 @@ class PlayPage extends Component {
     console.log("c: ", c);
     console.log("h: ", h);
     console.log("r: ", r);
-    rC= c[r].color;
+    rC = c[r].color;
     rH = c[r].hex;
-    
+
     console.log("rC: ", rC);
     console.log("rH: ", rH);
-    
 
-    this.setState({ colors: c, hexArr: h, randColor: rC, randHex: rH });
+    this.setState({
+      colors: c,
+      hexArr: h,
+      randColor: rC,
+      randHex: rH,
+      timerKey: k,
+    });
     console.log(this.state);
-  }
+  };
 }
 
 export default PlayPage;
