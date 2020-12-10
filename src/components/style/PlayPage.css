@@ -1,27 +1,23 @@
+h1,
 h3 {
   color: white;
 }
 
 .play-container {
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.tile-container {
+.game-board {
   display: flex;
   justify-content: center;
   margin: 20px;
 }
 
-td {
-  padding: 30px;
-  background-color: none;
-  border: 5px solid white;
-  width: 170px;
-  box-sizing: border-box;
-  border-radius: 50px;
+.button-row {
+  display: flex;
 }
 
 .guide-container {
@@ -36,10 +32,24 @@ td {
 }
 
 .color-button {
+  flex: 1;
+  width: 130px;
+  padding: 20px;
   font-weight: bold;
   font-size: 25px;
   border: none;
   background: none;
+  outline: none;
+}
+
+.color-button:hover {
+  flex: 1;
+  width: 130px;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  border: none;
+  background: #595959;
   outline: none;
 }
 

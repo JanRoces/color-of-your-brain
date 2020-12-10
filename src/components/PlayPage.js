@@ -10,7 +10,7 @@ class PlayPage extends Component {
       { color: "Orange", hex: "#ff7800" },
       { color: "Yellow", hex: "#fff700" },
       { color: "Green", hex: "#00ff00" },
-      { color: "Blue", hex: "#0000ff" },
+      { color: "Blue", hex: "#0000AB" },
       { color: "Purple", hex: "#ae00ff" },
       { color: "Pink", hex: "#ff00ff" },
       { color: "Black", hex: "#000000" },
@@ -21,7 +21,7 @@ class PlayPage extends Component {
       "#ff7800",
       "#fff700",
       "#00ff00",
-      "#0000ff",
+      "#0000AB",
       "#ae00ff",
       "#ff00ff",
       "#000000",
@@ -51,17 +51,16 @@ class PlayPage extends Component {
             trailColor={this.state.randHex}
             isPlaying
             duration={3}
-            colors={[
-              ["#d3d3d3", 0.33],
-              ["#d3d3d3", 0.33],
-              ["#d3d3d3", 0.33],
-            ]}></CountdownCircleTimer>
-        </div>
-        <div className="tile-container">
-          <table>{this.generateTable()}</table>
+            colors={"#d3d3d3"}>
+            {this.getTime}
+          </CountdownCircleTimer>
         </div>
         <div className="score-container">
           <h3>Score: {this.state.score}</h3>
+        </div>
+        <div className="game-board">
+          {/* <table>{this.generateTable()}</table> */}
+          {this.generateTable()}
         </div>
       </div>
     );
@@ -90,35 +89,29 @@ class PlayPage extends Component {
 
     for (i = 0; i < 3; i++) {
       colorTable.push(
-        <tr key={i}>
-          <td>
-            <button
-              className="color-button"
-              style={{ color: this.state.hexArr[i * 3] }}
-              value={this.state.colors[i * 3].color}
-              onClick={(e) => this.determineGame(e.target.value)}>
-              {this.state.colors[i * 3].color}
-            </button>
-          </td>
-          <td>
-            <button
-              className="color-button"
-              style={{ color: this.state.hexArr[i * 3 + 1] }}
-              value={this.state.colors[i * 3 + 1].color}
-              onClick={(e) => this.determineGame(e.target.value)}>
-              {this.state.colors[i * 3 + 1].color}
-            </button>
-          </td>
-          <td>
-            <button
-              className="color-button"
-              style={{ color: this.state.hexArr[i * 3 + 2] }}
-              value={this.state.colors[i * 3 + 2].color}
-              onClick={(e) => this.determineGame(e.target.value)}>
-              {this.state.colors[i * 3 + 2].color}
-            </button>
-          </td>
-        </tr>
+        <div className="button-row">
+          <button
+            className="color-button"
+            style={{ color: this.state.hexArr[i * 3] }}
+            value={this.state.colors[i * 3].color}
+            onClick={(e) => this.determineGame(e.target.value)}>
+            {this.state.colors[i * 3].color}
+          </button>
+          <button
+            className="color-button"
+            style={{ color: this.state.hexArr[i * 3 + 1] }}
+            value={this.state.colors[i * 3 + 1].color}
+            onClick={(e) => this.determineGame(e.target.value)}>
+            {this.state.colors[i * 3 + 1].color}
+          </button>
+          <button
+            className="color-button"
+            style={{ color: this.state.hexArr[i * 3 + 2] }}
+            value={this.state.colors[i * 3 + 2].color}
+            onClick={(e) => this.determineGame(e.target.value)}>
+            {this.state.colors[i * 3 + 2].color}
+          </button>
+        </div>
       );
     }
 
@@ -136,7 +129,7 @@ class PlayPage extends Component {
       this.renderTable();
     } else {
       console.log("YOU LOSE");
-      this.props.onGameOver();
+      this.props.onGameOver(this.state.score);
     }
   };
 
@@ -169,6 +162,13 @@ class PlayPage extends Component {
       timerKey: k,
     });
     console.log(this.state);
+  };
+
+  getTime = ({ remainingTime }) => {
+    if (remainingTime === 0) {
+      console.log("TOO LATE");
+      this.props.onGameOver(this.state.score);
+    }
   };
 }
 
