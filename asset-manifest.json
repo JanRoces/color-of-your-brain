@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/color-of-your-brain/static/css/main.61c54dfe.chunk.css",
+    "main.js": "/color-of-your-brain/static/js/main.bf63225b.chunk.js",
+    "main.js.map": "/color-of-your-brain/static/js/main.bf63225b.chunk.js.map",
+    "runtime-main.js": "/color-of-your-brain/static/js/runtime-main.21e871c8.js",
+    "runtime-main.js.map": "/color-of-your-brain/static/js/runtime-main.21e871c8.js.map",
+    "static/js/2.89d15a8d.chunk.js": "/color-of-your-brain/static/js/2.89d15a8d.chunk.js",
+    "static/js/2.89d15a8d.chunk.js.map": "/color-of-your-brain/static/js/2.89d15a8d.chunk.js.map",
+    "static/js/3.b0bc54f8.chunk.js": "/color-of-your-brain/static/js/3.b0bc54f8.chunk.js",
+    "static/js/3.b0bc54f8.chunk.js.map": "/color-of-your-brain/static/js/3.b0bc54f8.chunk.js.map",
+    "index.html": "/color-of-your-brain/index.html",
+    "static/css/main.61c54dfe.chunk.css.map": "/color-of-your-brain/static/css/main.61c54dfe.chunk.css.map",
+    "static/js/2.89d15a8d.chunk.js.LICENSE.txt": "/color-of-your-brain/static/js/2.89d15a8d.chunk.js.LICENSE.txt",
+    "static/media/game_over.aa78c664.png": "/color-of-your-brain/static/media/game_over.aa78c664.png",
+    "static/media/logo.eab4f40b.png": "/color-of-your-brain/static/media/logo.eab4f40b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.21e871c8.js",
+    "static/js/2.89d15a8d.chunk.js",
+    "static/css/main.61c54dfe.chunk.css",
+    "static/js/main.bf63225b.chunk.js"
+  ]
+}
