@@ -12,12 +12,7 @@ class App extends Component {
             className="link">
             janroces.com
           </button>
-          <button
-            onClick={() => window.open("https://github.com/JanRoces")}
-            className="link">
-            github.com/JanRoces
-          </button>
-        </div>
+          </div>
         <MainPage />
       </div>
     );
@@ -29,3 +24,9 @@ class App extends Component {
 }
 
 export default App;
+
+          // <button
+          //   onClick={() => window.open("https://github.com/JanRoces")}
+          //   className="link">
+          //   github.com/JanRoces
+          // </button>
